@@ -8,6 +8,7 @@ const PostcssSortMediaQueries = require("postcss-sort-media-queries");
 // Plugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const MiniCssExtractPluginInstance = new MiniCssExtractPlugin({
 	filename: "css/style.css",
@@ -16,6 +17,11 @@ const MiniCssExtractPluginInstance = new MiniCssExtractPlugin({
 const StylelintPluginInstance = new StylelintPlugin({
 	fix: true,
 });
+const HtmlWebpackPluginInstance = new HtmlWebpackPlugin({
+	filename: 'index.html',
+	template : 'src/index.html',
+	minify: false,
+})
 
 // Entry
 const entry = {
@@ -103,6 +109,20 @@ const ruleSass = {
 	]
 };
 
+// ModuleRule HTML
+const ruleHTML = {
+	test: /\.html$/,
+	exclude: /node_modules/,
+	use: [
+		{
+			loader: 'html-loader',
+			options: {
+				minimize: false
+			},
+		}
+	]
+};
+
 // Exports
 module.exports = {
 	entry,
@@ -119,5 +139,6 @@ module.exports = {
 	plugins: [
     MiniCssExtractPluginInstance,
 		StylelintPluginInstance,
+		HtmlWebpackPluginInstance
   ]
 };
