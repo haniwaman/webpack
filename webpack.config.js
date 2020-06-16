@@ -40,7 +40,8 @@ const output = {
 // Server
 const devServer = {
 	port: 3000,
-	contentBase: "dist"
+	contentBase: "dist",
+	open: true
 };
 
 // ModuleRule Pre
