@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
   	"build": "webpack",
-		"start": "./node_modules/.bin/webpack-dev-server"
+	"start": "./node_modules/.bin/webpack-dev-server"
   },
   "keywords": [],
   "author": "",
