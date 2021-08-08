@@ -85,15 +85,17 @@ const ruleSass = {
 		{
 			loader: "postcss-loader",
 			options: {
-				plugins: [
-					Autoprefixer(),
-					CssDeclarationSorter({
-						order: "alphabetical"
-					}),
-					PostcssSortMediaQueries({
-						sort: "desktop-first",
-					}),
-				]
+				postcssOptions: {
+					plugins: [
+						Autoprefixer(),
+						CssDeclarationSorter({
+							order: "alphabetical"
+						}),
+						PostcssSortMediaQueries({
+							sort: "desktop-first",
+						}),
+					]
+				}
 			}
 		},
 		{
